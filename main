@@ -473,7 +473,7 @@
 
             <div class="sidebar-section">
                 <div class="sidebar-heading">Management</div>
-                <div class="sidebar-item" id="editor-toggle-btn" onclick="triggerPrompt('editor')">
+                <div class="sidebar-item" id="editor-toggle-btn" onclick="triggerPrompt(EDITOR_PASSWORD)">
                     Editor View
                     <div class="toggle-switch"></div>
                 </div>
@@ -533,7 +533,7 @@
 
         function checkLogin() {
             const pass = document.getElementById('main-password').value;
-            if (pass === 'admin') {
+            if (pass === PASSWORD) {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('app-screen').style.display = 'flex';
                 showToast('Login Successful');
