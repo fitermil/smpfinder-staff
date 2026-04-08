@@ -532,7 +532,7 @@
 
         function checkLogin() {
             const pass = document.getElementById('main-password').value;
-            if (pass === PASSWORD) {
+            if (pass === 'admin') {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('app-screen').style.display = 'flex';
                 showToast('Login Successful');
