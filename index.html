@@ -532,7 +532,7 @@
 
         function checkLogin() {
             const pass = document.getElementById('main-password').value;
-            if (pass === 'admin') {
+            if (pass === PASSWORD) {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('app-screen').style.display = 'flex';
                 showToast('Login Successful');
@@ -578,7 +578,7 @@
             closePrompt();
 
             if (promptTarget === 'editor') {
-                if (pass === 'editor') toggleEditorView(true);
+                if (pass === EDITOR_PASSWORD) toggleEditorView(true);
                 else showToast('Incorrect Editor Password', 'error');
             }
         }
