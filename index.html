@@ -613,8 +613,6 @@
     <div id="toast-container"></div>
 
     <script>
-        const PASSWORD = 'password';
-        const EDITOR_PASSWORD = 'editor';
 
         const defaultData = {
             roster: [
@@ -697,7 +695,7 @@
 
         function checkLogin() {
             const pass = document.getElementById('main-password').value;
-            if (pass === PASSWORD) {
+            if (pass === 'password') {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('app-screen').style.display = 'flex';
                 showToast('Login Successful');
@@ -743,7 +741,7 @@
             closePrompt();
 
             if (promptTarget === 'editor') {
-                if (pass === EDITOR_PASSWORD) toggleEditorView(true);
+                if (pass === 'editor') toggleEditorView(true);
                 else showToast('Incorrect Editor Password', 'error');
             }
         }
