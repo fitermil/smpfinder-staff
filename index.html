@@ -91,7 +91,9 @@
             transition: background 0.2s;
         }
 
-        .btn:hover { background-color: var(--primary-btn-hover); }
+        .btn:hover {
+            background-color: var(--primary-btn-hover);
+        }
 
         #app-screen {
             display: none;
@@ -115,10 +117,17 @@
             padding: 20px 0;
         }
 
-        .sidebar-section { margin-bottom: 30px; }
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
 
-        .editor-only-sidebar { display: none; }
-        aside.editor-mode .editor-only-sidebar { display: block; }
+        .editor-only-sidebar {
+            display: none;
+        }
+
+        aside.editor-mode .editor-only-sidebar {
+            display: block;
+        }
 
         .sidebar-heading {
             color: var(--text-muted);
@@ -139,7 +148,10 @@
             transition: background 0.2s;
         }
 
-        .sidebar-item:hover { background-color: rgba(255, 255, 255, 0.05); }
+        .sidebar-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
         .sidebar-item.active {
             border-left: 4px solid var(--primary-btn);
             background-color: rgba(59, 113, 243, 0.1);
@@ -166,8 +178,13 @@
             transition: 0.3s;
         }
 
-        .sidebar-item.toggled .toggle-switch { background-color: var(--primary-btn); }
-        .sidebar-item.toggled .toggle-switch::after { transform: translateX(20px); }
+        .sidebar-item.toggled .toggle-switch {
+            background-color: var(--primary-btn);
+        }
+
+        .sidebar-item.toggled .toggle-switch::after {
+            transform: translateX(20px);
+        }
 
         .page-header {
             display: flex;
@@ -178,7 +195,9 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .rank-section { margin-bottom: 30px; }
+        .rank-section {
+            margin-bottom: 30px;
+        }
 
         .rank-header {
             display: flex;
@@ -204,12 +223,20 @@
             transition: opacity 0.3s;
         }
 
-        .user-card.status-resigned, .user-card.status-demoted {
+        .user-card.status-resigned,
+        .user-card.status-demoted {
             opacity: 0.5;
             border-color: #555;
         }
-        .user-card.status-resigned .user-name { text-decoration: line-through; }
-        .user-card.status-demoted .user-name { text-decoration: line-through; color: #ff4757 !important; }
+
+        .user-card.status-resigned .user-name {
+            text-decoration: line-through;
+        }
+
+        .user-card.status-demoted .user-name {
+            text-decoration: line-through;
+            color: #ff4757 !important;
+        }
 
         .user-header {
             display: flex;
@@ -217,7 +244,10 @@
             align-items: center;
         }
 
-        .user-name { font-size: 18px; font-weight: bold; }
+        .user-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
 
         .user-controls {
             display: flex;
@@ -230,6 +260,7 @@
             gap: 20px;
             font-size: 14px;
             color: var(--text-muted);
+            align-items: center;
         }
 
         .data-row {
@@ -258,22 +289,25 @@
         .data-label {
             font-size: 12px;
             color: var(--text-muted);
-            width: 60px;
+            width: 70px;
             font-weight: bold;
         }
 
-        input[type="text"], input[type="number"], input[type="date"], select {
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             color: white;
             padding: 5px;
             border-radius: 4px;
             outline: none;
-            width: 70px;
             text-align: center;
         }
 
-        input:disabled, select:disabled {
+        input:disabled,
+        select:disabled {
             opacity: 0.7;
             border-color: transparent;
             background: transparent;
@@ -296,13 +330,14 @@
             border-collapse: collapse;
             margin-top: 10px;
         }
-        
-        th, td {
+
+        th,
+        td {
             text-align: left;
             padding: 12px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         th {
             background-color: var(--bg-card);
             color: var(--text-muted);
@@ -310,13 +345,15 @@
             text-transform: uppercase;
         }
 
-        td input[type="text"], td input[type="date"], td select { 
-            width: 100%; 
-            min-width: 150px; 
-            text-align: left; 
+        td input[type="text"],
+        td input[type="date"],
+        td select {
+            width: 100%;
+            min-width: 150px;
+            text-align: left;
             box-sizing: border-box;
         }
-        
+
         td input[type="number"] {
             width: 100%;
             min-width: 60px;
@@ -331,11 +368,22 @@
             border: none;
             color: white;
         }
-        
-        .bg-danger { background-color: #ff4757; }
-        .bg-warning { background-color: #ffa502; }
-        .bg-secondary { background-color: #57606f; }
-        .bg-primary { background-color: var(--primary-btn); }
+
+        .bg-danger {
+            background-color: #ff4757;
+        }
+
+        .bg-warning {
+            background-color: #ffa502;
+        }
+
+        .bg-secondary {
+            background-color: #57606f;
+        }
+
+        .bg-primary {
+            background-color: var(--primary-btn);
+        }
 
         .add-user-btn {
             background-color: var(--bg-input);
@@ -348,16 +396,21 @@
             display: none;
         }
 
-        .editor-mode .add-user-btn { display: inline-block; }
-        .editor-mode .hide-in-editor { display: none; }
+        .editor-mode .add-user-btn {
+            display: inline-block;
+        }
 
         .modal {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.7);
             z-index: 200;
-            justify-content: center; align-items: center;
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
@@ -369,28 +422,76 @@
             text-align: center;
         }
 
-        .modal-actions { display: flex; gap: 10px; margin-top: 15px; }
-        .btn-cancel { background-color: transparent; border: 1px solid var(--text-muted); }
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-cancel {
+            background-color: transparent;
+            border: 1px solid var(--text-muted);
+        }
 
         #toast-container {
             position: fixed;
-            bottom: 20px; left: 20px; z-index: 300;
-            display: flex; flex-direction: column; gap: 10px;
+            bottom: 20px;
+            left: 20px;
+            z-index: 300;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .toast {
-            background: var(--bg-card); color: white; padding: 12px 20px;
-            border-radius: 6px; border-left: 4px solid var(--primary-btn);
+            background: var(--bg-card);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-btn);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             animation: slideIn 0.3s forwards;
         }
 
         @keyframes slideIn {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
-        .hidden { display: none !important; }
+        .hidden {
+            display: none !important;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .week-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-input);
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        #week-display {
+            font-size: 13px;
+            font-weight: bold;
+            width: 190px;
+            text-align: center;
+            color: var(--primary-btn);
+        }
     </style>
 </head>
 
@@ -410,8 +511,17 @@
             <div id="page-roster" class="page">
                 <div class="page-header">
                     <h2>Staff Roster</h2>
-                    <input type="text" id="search-bar" class="input-field" style="width: 250px; margin:0;"
-                        placeholder="Search Username..." oninput="renderRoster()">
+                    <div class="header-actions">
+                        <div class="week-nav">
+                            <button class="btn-small bg-secondary" onclick="changeWeek(-1)"
+                                title="Previous Week">&larr;</button>
+                            <span id="week-display"></span>
+                            <button class="btn-small bg-secondary" onclick="changeWeek(1)"
+                                title="Next Week">&rarr;</button>
+                        </div>
+                        <input type="text" id="search-bar" class="input-field" style="width: 200px; margin:0;"
+                            placeholder="Search Username..." oninput="renderAll()">
+                    </div>
                 </div>
                 <div id="roster-container"></div>
             </div>
@@ -491,7 +601,8 @@
     <div id="prompt-modal" class="modal">
         <div class="modal-content">
             <h3 id="prompt-title" style="margin-bottom: 15px;">Authentication Required</h3>
-            <input type="password" id="prompt-password" class="input-field" placeholder="Enter Password" onkeypress="if(event.key === 'Enter') submitPrompt()">
+            <input type="password" id="prompt-password" class="input-field" placeholder="Enter Password"
+                onkeypress="if(event.key === 'Enter') submitPrompt()">
             <div class="modal-actions">
                 <button class="btn btn-cancel" onclick="closePrompt()">Cancel</button>
                 <button class="btn" onclick="submitPrompt()">Submit</button>
@@ -500,7 +611,11 @@
     </div>
 
     <div id="toast-container"></div>
+
     <script>
+        const PASSWORD = 'password';
+        const EDITOR_PASSWORD = 'editor';
+
         const defaultData = {
             roster: [
                 { rank: "Admin", color: "var(--color-admin)", users: [] },
@@ -508,17 +623,67 @@
                 { rank: "Mod", color: "var(--color-mod)", users: [] },
                 { rank: "Helper", color: "var(--color-helper)", users: [] },
                 { rank: "Junior Staff", color: "var(--color-jrstaff)", users: [] }
-            ],
-            strikes: [],
-            interviews: []
+            ]
         };
 
-        let systemData = JSON.parse(localStorage.getItem('systemStaffData')) || defaultData;
-        
-        if(Array.isArray(systemData)) systemData = { roster: systemData, strikes: [], interviews: [] };
+        let systemData = JSON.parse(localStorage.getItem('systemStaffData')) || { strikes: [], interviews: [] };
+
+        if (!systemData.weeks) {
+            let tempSunday = new Date();
+            tempSunday.setDate(tempSunday.getDate() - tempSunday.getDay());
+            let tempKey = `${tempSunday.getFullYear()}-${String(tempSunday.getMonth() + 1).padStart(2, '0')}-${String(tempSunday.getDate()).padStart(2, '0')}`;
+
+            let baseRoster = systemData.roster || defaultData.roster;
+            systemData = {
+                weeks: {},
+                strikes: systemData.strikes || [],
+                interviews: systemData.interviews || []
+            };
+            systemData.weeks[tempKey] = baseRoster;
+            localStorage.setItem('systemStaffData', JSON.stringify(systemData));
+        }
 
         let isEditorView = false;
         let promptTarget = '';
+
+        let currentSunday = new Date();
+        currentSunday.setDate(currentSunday.getDate() - currentSunday.getDay());
+        currentSunday.setHours(0, 0, 0, 0);
+
+        function changeWeek(offset) {
+            currentSunday.setDate(currentSunday.getDate() + (offset * 7));
+            renderAll();
+        }
+
+        function getWeekKey() {
+            return `${currentSunday.getFullYear()}-${String(currentSunday.getMonth() + 1).padStart(2, '0')}-${String(currentSunday.getDate()).padStart(2, '0')}`;
+        }
+
+        function formatWeekDisplay() {
+            let sat = new Date(currentSunday);
+            sat.setDate(sat.getDate() + 6);
+            const options = { month: 'short', day: 'numeric' };
+            return `${currentSunday.toLocaleDateString('en-US', options)} - ${sat.toLocaleDateString('en-US', options)}`;
+        }
+
+        function getCurrentRoster() {
+            const key = getWeekKey();
+            if (!systemData.weeks[key]) {
+                systemData.weeks[key] = [
+                    { rank: "Admin", color: "var(--color-admin)", users: [] },
+                    { rank: "Senior Mod", color: "var(--color-srmod)", users: [] },
+                    { rank: "Mod", color: "var(--color-mod)", users: [] },
+                    { rank: "Helper", color: "var(--color-helper)", users: [] },
+                    { rank: "Junior Staff", color: "var(--color-jrstaff)", users: [] }
+                ];
+                saveData();
+            }
+            return systemData.weeks[key];
+        }
+
+        function saveData() {
+            localStorage.setItem('systemStaffData', JSON.stringify(systemData));
+        }
 
         function showToast(message, type = "success") {
             const container = document.getElementById('toast-container');
@@ -551,7 +716,7 @@
         }
 
         function renderAll() {
-            renderRoster();
+            renderRosterView();
             renderStrikes();
             renderInterviews();
 
@@ -626,56 +791,90 @@
             return `${map(k + (k === 5 ? 1 : 0))} | ${map(l + (l === 5 ? 1 : 0))} | ${map(m + (m === 5 ? 1 : 0))}`;
         }
 
-        function calcPassFailFormula(arr) {
-            const pass = arr.filter(v => v === 'P').length;
-            const fail = arr.filter(v => v === 'F').length;
-            return `Pass: ${pass} | Fail: ${fail}`;
+        function updateUserField(rankIndex, userIndex, field, value) {
+            const weekKey = getWeekKey();
+            systemData.weeks[weekKey][rankIndex].users[userIndex][field] = value;
+            saveData();
+            renderAll();
         }
 
-        function renderRoster() {
+        function renderRosterView() {
+            document.getElementById('week-display').innerText = formatWeekDisplay();
+            const weekKey = getWeekKey();
+            const rosterData = getCurrentRoster();
+
             const container = document.getElementById('roster-container');
             const searchQ = document.getElementById('search-bar').value.toLowerCase();
             container.innerHTML = '';
 
             const disabledState = isEditorView ? '' : 'disabled';
             const pfOptions = ['-', 'P', 'F', 'E', 'LOA'];
+            const rankSelectOptions = rosterData.map((r, idx) => `<option value="${idx}">${r.rank}</option>`).join('');
 
-            const rankSelectOptions = systemData.roster.map((r, idx) => `<option value="${idx}">${r.rank}</option>`).join('');
-
-            systemData.roster.forEach((rankGroup, rankIndex) => {
+            rosterData.forEach((rankGroup, rankIndex) => {
                 let html = `<div class="rank-section">
                     <div class="rank-header">
                         <h3>${rankGroup.rank}</h3>
                         <button class="add-user-btn" onclick="addNewUser(${rankIndex})">+ Add to ${rankGroup.rank}</button>
                     </div>`;
-                
+
                 let hasUsersInSearch = false;
 
-                const sortedUsers = [...rankGroup.users].map((u, i) => ({...u, originalIndex: i})).sort((a, b) => {
+                const sortedUsers = [...rankGroup.users].map((u, i) => ({ ...u, originalIndex: i })).sort((a, b) => {
                     const aBad = (a.empStatus === 'resigned' || a.empStatus === 'demoted') ? 1 : 0;
                     const bBad = (b.empStatus === 'resigned' || b.empStatus === 'demoted') ? 1 : 0;
                     return aBad - bBad;
                 });
 
                 sortedUsers.forEach((user) => {
-                    if (!user.username.toLowerCase().includes(searchQ)) return;
+                    if (searchQ && !user.username.toLowerCase().includes(searchQ)) return;
                     hasUsersInSearch = true;
 
-                    const actResult = calcActivityFormula(user.a1, user.a2, user.a3);
-                    const pfResult = calcPassFailFormula([user.s1, user.s2, user.s3, user.s4, user.s5]);
+                    let a1 = user.a1 !== undefined ? user.a1 : (user.activity && user.activity[weekKey] ? user.activity[weekKey].a1 : '');
+                    let a2 = user.a2 !== undefined ? user.a2 : (user.activity && user.activity[weekKey] ? user.activity[weekKey].a2 : '');
+                    let a3 = user.a3 !== undefined ? user.a3 : (user.activity && user.activity[weekKey] ? user.activity[weekKey].a3 : '');
 
-                    const buildSelect = (val, field) => {
-                        let opts = pfOptions.map(o => `<option value="${o}" ${val === o ? 'selected' : ''}>${o}</option>`).join('');
-                        return `<select onchange="updateUser(${rankIndex}, ${user.originalIndex}, '${field}', this.value)" ${disabledState}>${opts}</select>`;
-                    };
+                    let p1 = user.p1 !== undefined ? user.p1 : (user.activity && user.activity[weekKey] ? user.activity[weekKey].status : '-');
+                    if (!p1) p1 = '-';
+                    const p2 = user.p2 || '-';
+                    const p3 = user.p3 || '-';
+                    const p4 = user.p4 || '-';
+                    const p5 = user.p5 || '-';
 
+                    let passCount = [p1, p2, p3, p4, p5].filter(x => x === 'P').length;
+                    let failCount = [p1, p2, p3, p4, p5].filter(x => x === 'F').length;
+
+                    const actResult = calcActivityFormula(a1, a2, a3);
                     let empClass = user.empStatus ? `status-${user.empStatus}` : '';
+
+
+                    let isAsterisk = user.username.trim().endsWith('*');
+                    let displayColor = isAsterisk ? '#ffe785' : rankGroup.color;
+
+                    let evalHtml = '';
+                    if (rankGroup.rank === "Junior Staff") {
+                        let evalDateStr = 'N/A';
+                        if (user.promoted) {
+                            let parts = user.promoted.split('-');
+                            if (parts.length === 3) {
+                                let pDate = new Date(parts[0], parts[1] - 1, parts[2]);
+                                pDate.setDate(pDate.getDate() + 14);
+                                evalDateStr = pDate.toLocaleDateString();
+                            }
+                        }
+                        evalHtml = `<span>Eval Date: <strong style="color:var(--color-jrstaff)">${evalDateStr}</strong></span>`;
+                    }
+
+                    const buildPfSelect = (field, val) => {
+                        let opts = pfOptions.map(o => `<option value="${o}" ${val === o ? 'selected' : ''}>${o}</option>`).join('');
+                        return `<select onchange="updateUserField(${rankIndex}, ${user.originalIndex}, '${field}', this.value)" ${disabledState} style="width: 55px; padding: 4px;">${opts}</select>`;
+                    };
 
                     html += `
                     <div class="user-card ${empClass}">
                         <div class="user-header">
-                            <div class="user-name" style="color: ${rankGroup.color}">
-                                ${isEditorView ? `<input type="text" value="${user.username}" onchange="updateUser(${rankIndex}, ${user.originalIndex}, 'username', this.value)" style="width:150px; text-align:left;">` : user.username}
+                            <div class="user-name" style="color: ${displayColor}">
+                                ${isEditorView ? `<input type="text" value="${user.username}" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'username', this.value)" style="width:150px; text-align:left;">` : user.username}
                             </div>
                             <div class="user-controls">
                                 ${isEditorView ? `
@@ -691,8 +890,9 @@
                         </div>
                         
                         <div class="user-info-row">
-                            <span>Promoted: ${isEditorView ? `<input type="text" value="${user.promoted || ''}" onchange="updateUser(${rankIndex}, ${user.originalIndex}, 'promoted', this.value)" style="width:100px;">` : (user.promoted || 'N/A')}</span>
-                            <span>Region: ${isEditorView ? `<input type="text" value="${user.region || ''}" onchange="updateUser(${rankIndex}, ${user.originalIndex}, 'region', this.value)" style="width:60px;">` : (user.region || 'N/A')}</span>
+                            <span>Promoted: ${isEditorView ? `<input type="date" value="${user.promoted || ''}" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'promoted', this.value)" style="width:125px;">` : (user.promoted || 'N/A')}</span>
+                            ${evalHtml}
+                            <span>Region: ${isEditorView ? `<input type="text" value="${user.region || ''}" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'region', this.value)" style="width:60px;">` : (user.region || 'N/A')}</span>
                             ${user.empStatus ? `<span style="color: #ff4757; font-weight: bold; text-transform: uppercase;">(${user.empStatus})</span>` : ''}
                         </div>
                         
@@ -700,33 +900,40 @@
                             <span class="data-label">Activity:</span>
                             <div class="input-group">
                                 <span class="input-label">Msgs</span>
-                                <input type="number" value="${user.a1}" onchange="updateUser(${rankIndex}, ${user.originalIndex}, 'a1', this.value)" ${disabledState}>
+                                <input type="number" value="${a1}" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'a1', this.value)" ${disabledState} style="width: 60px;">
                             </div>
                             <div class="input-group">
                                 <span class="input-label">Puns</span>
-                                <input type="number" value="${user.a2}" onchange="updateUser(${rankIndex}, ${user.originalIndex}, 'a2', this.value)" ${disabledState}>
+                                <input type="number" value="${a2}" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'a2', this.value)" ${disabledState} style="width: 60px;">
                             </div>
                             <div class="input-group">
                                 <span class="input-label">Tix</span>
-                                <input type="number" value="${user.a3}" onchange="updateUser(${rankIndex}, ${user.originalIndex}, 'a3', this.value)" ${disabledState}>
+                                <input type="number" value="${a3}" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'a3', this.value)" ${disabledState} style="width: 60px;">
                             </div>
                             <div class="output-box">${actResult}</div>
                         </div>
 
-                        <div class="data-row">
-                            <span class="data-label">Status:</span>
-                            <div class="input-group"><span class="input-label">W1</span>${buildSelect(user.s1, 's1')}</div>
-                            <div class="input-group"><span class="input-label">W2</span>${buildSelect(user.s2, 's2')}</div>
-                            <div class="input-group"><span class="input-label">W3</span>${buildSelect(user.s3, 's3')}</div>
-                            <div class="input-group"><span class="input-label">W4</span>${buildSelect(user.s4, 's4')}</div>
-                            <div class="input-group"><span class="input-label">W5</span>${buildSelect(user.s5, 's5')}</div>
-                            <div class="output-box">${pfResult}</div>
+                        <div class="data-row" style="margin-top: -5px; padding-top: 5px; padding-bottom: 5px;">
+                            <span class="data-label" style="width: 80px;">Monthly Quota:</span>
+                            <div style="display:flex; gap:5px;">
+                                ${buildPfSelect('p1', p1)}
+                                ${buildPfSelect('p2', p2)}
+                                ${buildPfSelect('p3', p3)}
+                                ${buildPfSelect('p4', p4)}
+                                ${buildPfSelect('p5', p5)}
+                            </div>
+                            <div class="output-box" style="margin-left: auto;">Pass: ${passCount} | Fail: ${failCount}</div>
                         </div>
                     </div>`;
                 });
 
                 html += `</div>`;
-                if (hasUsersInSearch || rankGroup.users.length === 0) container.innerHTML += html;
+
+                if (searchQ !== '') {
+                    if (hasUsersInSearch) container.innerHTML += html;
+                } else {
+                    container.innerHTML += html;
+                }
             });
         }
 
@@ -734,7 +941,7 @@
             const tbody = document.getElementById('strikes-container');
             tbody.innerHTML = '';
             const dis = isEditorView ? '' : 'disabled';
-            
+
             systemData.strikes.forEach((strike, idx) => {
                 tbody.innerHTML += `
                 <tr>
@@ -745,10 +952,10 @@
                     <td><input type="number" value="${strike.strikeNum}" onchange="updateArrayItem('strikes', ${idx}, 'strikeNum', this.value)" ${dis}></td>
                     <td>
                         <select onchange="updateArrayItem('strikes', ${idx}, 'status', this.value)" ${dis}>
-                            <option value="Active" ${strike.status==='Active'?'selected':''}>Active</option>
-                            <option value="Appealed" ${strike.status==='Appealed'?'selected':''}>Appealed</option>
-                            <option value="Expired" ${strike.status==='Expired'?'selected':''}>Expired</option>
-                            <option value="Demoted" ${strike.status==='Demoted'?'selected':''}>Demoted</option>
+                            <option value="Active" ${strike.status === 'Active' ? 'selected' : ''}>Active</option>
+                            <option value="Appealed" ${strike.status === 'Appealed' ? 'selected' : ''}>Appealed</option>
+                            <option value="Expired" ${strike.status === 'Expired' ? 'selected' : ''}>Expired</option>
+                            <option value="Demoted" ${strike.status === 'Demoted' ? 'selected' : ''}>Demoted</option>
                         </select>
                     </td>
                     <td class="editor-only-th" style="display: ${isEditorView ? 'table-cell' : 'none'}">
@@ -762,7 +969,7 @@
             const tbody = document.getElementById('interviews-container');
             tbody.innerHTML = '';
             const dis = isEditorView ? '' : 'disabled';
-            
+
             systemData.interviews.forEach((iv, idx) => {
                 tbody.innerHTML += `
                 <tr>
@@ -772,13 +979,13 @@
                     <td><input type="text" value="${iv.staffPresent}" onchange="updateArrayItem('interviews', ${idx}, 'staffPresent', this.value)" ${dis}></td>
                     <td>
                         <select onchange="updateArrayItem('interviews', ${idx}, 'status', this.value)" ${dis}>
-                            <option value="Pending" ${iv.status==='Pending'?'selected':''}>Pending</option>
-                            <option value="Hired" ${iv.status==='Hired'?'selected':''}>Hired</option>
-                            <option value="Denied" ${iv.status==='Denied'?'selected':''}>Denied</option>
-                            <option value="Direct Hire" ${iv.status==='Direct Hire'?'selected':''}>Direct Hire</option>
+                            <option value="Pending" ${iv.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                            <option value="Hired" ${iv.status === 'Hired' ? 'selected' : ''}>Hired</option>
+                            <option value="Denied" ${iv.status === 'Denied' ? 'selected' : ''}>Denied</option>
+                            <option value="Direct Hire" ${iv.status === 'Direct Hire' ? 'selected' : ''}>Direct Hire</option>
                         </select>
                     </td>
-                    <td><input type="text" value="${iv.notes}" onchange="updateArrayItem('interviews', ${idx}, 'notes', this.value)" ${dis}></td>
+                    <td><input type="text" value="${iv.notes || ''}" onchange="updateArrayItem('interviews', ${idx}, 'notes', this.value)" ${dis}></td>
                     <td class="editor-only-th" style="display: ${isEditorView ? 'table-cell' : 'none'}">
                         <button class="btn-small bg-danger" onclick="deleteArrayItem('interviews', ${idx})">Del</button>
                     </td>
@@ -786,77 +993,76 @@
             });
         }
 
-        function updateUser(rankIdx, userIdx, field, value) {
-            systemData.roster[rankIdx].users[userIdx][field] = value;
+        function updateArrayItem(listName, index, field, value) {
+            systemData[listName][index][field] = value;
             saveData();
-            renderRoster();
         }
 
-        function setUserStatus(rankIdx, userIdx, status) {
-            let currentStatus = systemData.roster[rankIdx].users[userIdx].empStatus;
-            systemData.roster[rankIdx].users[userIdx].empStatus = (currentStatus === status) ? null : status; 
-            saveData();
-            renderRoster();
-        }
-
-        function moveUserRank(oldRankIdx, userIdx, newRankIdx) {
-            if (newRankIdx === "" || oldRankIdx == newRankIdx) return;
-            const user = systemData.roster[oldRankIdx].users.splice(userIdx, 1)[0];
-            systemData.roster[newRankIdx].users.push(user);
-            saveData();
-            renderRoster();
-        }
-
-        function deleteUser(rankIdx, userIdx) {
-            if (confirm("Are you sure you want to remove this user?")) {
-                systemData.roster[rankIdx].users.splice(userIdx, 1);
+        function deleteArrayItem(listName, index) {
+            if (confirm('Are you sure you want to delete this record?')) {
+                systemData[listName].splice(index, 1);
                 saveData();
-                renderRoster();
+                renderAll();
             }
         }
 
         function addNewUser(rankIndex) {
-            systemData.roster[rankIndex].users.unshift({
-                id: Date.now(), username: "New_User", promoted: "YYYY-MM-DD", region: "TBD", empStatus: null,
-                a1: 0, a2: 0, a3: 0, s1: "-", s2: "-", s3: "-", s4: "-", s5: "-"
-            });
-            saveData();
-            renderRoster();
-        }
-
-        function updateArrayItem(arrayName, idx, field, value) {
-            systemData[arrayName][idx][field] = value;
-            saveData();
-        }
-
-        function deleteArrayItem(arrayName, idx) {
-            if (confirm("Are you sure you want to delete this row?")) {
-                systemData[arrayName].splice(idx, 1);
+            const username = prompt("Enter new staff username:");
+            if (username) {
+                const weekKey = getWeekKey();
+                systemData.weeks[weekKey][rankIndex].users.push({
+                    username: username,
+                    promoted: '', region: '', empStatus: '',
+                    a1: '', a2: '', a3: '',
+                    p1: '-', p2: '-', p3: '-', p4: '-', p5: '-'
+                });
                 saveData();
-                if(arrayName === 'strikes') renderStrikes();
-                if(arrayName === 'interviews') renderInterviews();
+                renderAll();
             }
         }
 
-        function addStrike() {
-            systemData.strikes.unshift({ username: "Username", userid: "12345", date: "", reason: "Reason", strikeNum: 1, status: "Active" });
+        function deleteUser(rankIndex, userIndex) {
+            if (confirm('Are you sure you want to completely remove this user from this week?')) {
+                const weekKey = getWeekKey();
+                systemData.weeks[weekKey][rankIndex].users.splice(userIndex, 1);
+                saveData();
+                renderAll();
+            }
+        }
+
+        function setUserStatus(rankIndex, userIndex, status) {
+            const weekKey = getWeekKey();
+            const user = systemData.weeks[weekKey][rankIndex].users[userIndex];
+            user.empStatus = user.empStatus === status ? '' : status;
             saveData();
-            renderStrikes();
+            renderAll();
+        }
+
+        function moveUserRank(oldRankIndex, userIndex, newRankIndex) {
+            const weekKey = getWeekKey();
+            const user = systemData.weeks[weekKey][oldRankIndex].users.splice(userIndex, 1)[0];
+            systemData.weeks[weekKey][newRankIndex].users.push(user);
+            saveData();
+            renderAll();
+        }
+
+        function addStrike() {
+            systemData.strikes.push({ username: '', userid: '', date: '', reason: '', strikeNum: 1, status: 'Active' });
+            saveData();
+            renderAll();
         }
 
         function addInterview() {
-            systemData.interviews.unshift({ interviewee: "Name", date: "", interviewer: "Name", staffPresent: "None", status: "Pending", notes: "" });
+            systemData.interviews.push({ interviewee: '', date: '', interviewer: '', staffPresent: '', status: 'Pending', notes: '' });
             saveData();
-            renderInterviews();
+            renderAll();
         }
-
-        function saveData() { localStorage.setItem('systemStaffData', JSON.stringify(systemData)); }
 
         function exportData() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(systemData));
             const downloadAnchorNode = document.createElement('a');
             downloadAnchorNode.setAttribute("href", dataStr);
-            downloadAnchorNode.setAttribute("download", "staff_management_backup.json");
+            downloadAnchorNode.setAttribute("download", "smpfinder_backup.json");
             document.body.appendChild(downloadAnchorNode);
             downloadAnchorNode.click();
             downloadAnchorNode.remove();
@@ -866,21 +1072,22 @@
             const file = event.target.files[0];
             if (!file) return;
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 try {
-                    const imported = JSON.parse(e.target.result);
-                    if(imported.roster) {
-                        systemData = imported;
-                        saveData();
-                        renderAll();
-                        showToast('Backup Imported Successfully!');
-                    } else throw new Error("Invalid Format");
+                    systemData = JSON.parse(e.target.result);
+                    saveData();
+                    renderAll();
+                    showToast('Backup Imported Successfully');
                 } catch (err) {
-                    showToast('Failed to import backup file.', 'error');
+                    showToast('Failed to parse backup file', 'error');
                 }
             };
             reader.readAsText(file);
         }
+
     </script>
+</body>
+
+</html>
 </body>
 </html>
