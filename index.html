@@ -121,14 +121,6 @@
             margin-bottom: 30px;
         }
 
-        .editor-only-sidebar {
-            display: none;
-        }
-
-        aside.editor-mode .editor-only-sidebar {
-            display: block;
-        }
-
         .sidebar-heading {
             color: var(--text-muted);
             font-size: 12px;
@@ -253,6 +245,27 @@
             display: flex;
             gap: 8px;
             align-items: center;
+        }
+
+        .user-top-right-box {
+            background-color: var(--bg-input);
+            border: 1px solid var(--border-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-main);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .user-top-right-box input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 12px;
+            width: 100%;
+            text-align: center;
+            outline: none;
         }
 
         .user-info-row {
@@ -588,13 +601,6 @@
                     <div class="toggle-switch"></div>
                 </div>
             </div>
-
-            <div class="sidebar-section editor-only-sidebar" id="github-backup-section">
-                <div class="sidebar-heading">Data (GitHub Deploy)</div>
-                <div class="sidebar-item" onclick="exportData()">Export Backup (.json)</div>
-                <div class="sidebar-item" onclick="document.getElementById('import-file').click()">Import Backup</div>
-                <input type="file" id="import-file" style="display:none" accept=".json" onchange="importData(event)">
-            </div>
         </aside>
     </div>
 
@@ -810,12 +816,13 @@
             const rankSelectOptions = rosterData.map((r, idx) => `<option value="${idx}">${r.rank}</option>`).join('');
 
             rosterData.forEach((rankGroup, rankIndex) => {
-                let html = `<div class="rank-section">
+                let rankHeaderHtml = `<div class="rank-section">
                     <div class="rank-header">
                         <h3>${rankGroup.rank}</h3>
                         <button class="add-user-btn" onclick="addNewUser(${rankIndex})">+ Add to ${rankGroup.rank}</button>
                     </div>`;
 
+                let usersHtml = '';
                 let hasUsersInSearch = false;
 
                 const sortedUsers = [...rankGroup.users].map((u, i) => ({ ...u, originalIndex: i })).sort((a, b) => {
@@ -845,7 +852,6 @@
                     const actResult = calcActivityFormula(a1, a2, a3);
                     let empClass = user.empStatus ? `status-${user.empStatus}` : '';
 
-
                     let isAsterisk = user.username.trim().endsWith('*');
                     let displayColor = isAsterisk ? '#ffe785' : rankGroup.color;
 
@@ -868,22 +874,31 @@
                         return `<select onchange="updateUserField(${rankIndex}, ${user.originalIndex}, '${field}', this.value)" ${disabledState} style="width: 55px; padding: 4px;">${opts}</select>`;
                     };
 
-                    html += `
+                    const topBoxHtml = isEditorView 
+                        ? `<input type="text" value="${user.topBox || ''}" placeholder="Notes/ID..." onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'topBox', this.value)">`
+                        : (user.topBox || '');
+
+                    const topBoxDiv = (isEditorView || user.topBox) ? `<div class="user-top-right-box">${topBoxHtml}</div>` : '';
+
+                    usersHtml += `
                     <div class="user-card ${empClass}">
                         <div class="user-header">
                             <div class="user-name" style="color: ${displayColor}">
                                 ${isEditorView ? `<input type="text" value="${user.username}" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'username', this.value)" style="width:150px; text-align:left;">` : user.username}
                             </div>
-                            <div class="user-controls">
-                                ${isEditorView ? `
-                                    <select onchange="moveUserRank(${rankIndex}, ${user.originalIndex}, this.value)" class="btn-small bg-secondary" style="width: auto;">
-                                        <option value="" disabled selected>Move Rank...</option>
-                                        ${rankSelectOptions}
-                                    </select>
-                                    <button class="btn-small bg-warning" onclick="setUserStatus(${rankIndex}, ${user.originalIndex}, 'resigned')">Resigned</button>
-                                    <button class="btn-small bg-warning" onclick="setUserStatus(${rankIndex}, ${user.originalIndex}, 'demoted')">Demoted</button>
-                                    <button class="btn-small bg-danger" onclick="deleteUser(${rankIndex}, ${user.originalIndex})">Remove</button>
-                                ` : ''}
+                            <div style="display:flex; align-items:center; gap:15px;">
+                                <div class="user-controls">
+                                    ${isEditorView ? `
+                                        <select onchange="moveUserRank(${rankIndex}, ${user.originalIndex}, this.value)" class="btn-small bg-secondary" style="width: auto;">
+                                            <option value="" disabled selected>Move Rank...</option>
+                                            ${rankSelectOptions}
+                                        </select>
+                                        <button class="btn-small bg-warning" onclick="setUserStatus(${rankIndex}, ${user.originalIndex}, 'resigned')">Resigned</button>
+                                        <button class="btn-small bg-warning" onclick="setUserStatus(${rankIndex}, ${user.originalIndex}, 'demoted')">Demoted</button>
+                                        <button class="btn-small bg-danger" onclick="deleteUser(${rankIndex}, ${user.originalIndex})">Remove</button>
+                                    ` : ''}
+                                </div>
+                                ${topBoxDiv}
                             </div>
                         </div>
                         
@@ -925,12 +940,10 @@
                     </div>`;
                 });
 
-                html += `</div>`;
-
-                if (searchQ !== '') {
-                    if (hasUsersInSearch) container.innerHTML += html;
+                if (searchQ && !hasUsersInSearch) {
+                    // Do not render this rank's section if search is active and it has no matching users
                 } else {
-                    container.innerHTML += html;
+                    container.innerHTML += rankHeaderHtml + usersHtml + `</div>`;
                 }
             });
         }
@@ -1010,7 +1023,7 @@
                 const weekKey = getWeekKey();
                 systemData.weeks[weekKey][rankIndex].users.push({
                     username: username,
-                    promoted: '', region: '', empStatus: '',
+                    promoted: '', region: '', empStatus: '', topBox: '',
                     a1: '', a2: '', a3: '',
                     p1: '-', p2: '-', p3: '-', p4: '-', p5: '-'
                 });
@@ -1056,36 +1069,7 @@
             renderAll();
         }
 
-        function exportData() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(systemData));
-            const downloadAnchorNode = document.createElement('a');
-            downloadAnchorNode.setAttribute("href", dataStr);
-            downloadAnchorNode.setAttribute("download", "smpfinder_backup.json");
-            document.body.appendChild(downloadAnchorNode);
-            downloadAnchorNode.click();
-            downloadAnchorNode.remove();
-        }
-
-        function importData(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                try {
-                    systemData = JSON.parse(e.target.result);
-                    saveData();
-                    renderAll();
-                    showToast('Backup Imported Successfully');
-                } catch (err) {
-                    showToast('Failed to parse backup file', 'error');
-                }
-            };
-            reader.readAsText(file);
-        }
-
     </script>
 </body>
 
-</html>
-</body>
 </html>
