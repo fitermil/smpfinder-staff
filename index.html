@@ -874,11 +874,11 @@
                         return `<select onchange="updateUserField(${rankIndex}, ${user.originalIndex}, '${field}', this.value)" ${disabledState} style="width: 55px; padding: 4px;">${opts}</select>`;
                     };
 
-                    const topBoxHtml = isEditorView 
-                        ? `<input type="text" value="${user.topBox || ''}" placeholder="Notes/ID..." onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'topBox', this.value)">`
+                    const topBoxHtml = isEditorView
+                        ? `<input type="text" value="${user.topBox || ''}" placeholder="Strikes" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'topBox', this.value)">`
                         : (user.topBox || '');
 
-                    const topBoxDiv = (isEditorView || user.topBox) ? `<div class="user-top-right-box">${topBoxHtml}</div>` : '';
+                    const topBoxDiv = (isEditorView || user.topBox) ? `<div class="user-top-right-box">${topBoxHtml} Strikes</div>` : '';
 
                     usersHtml += `
                     <div class="user-card ${empClass}">
@@ -941,7 +941,6 @@
                 });
 
                 if (searchQ && !hasUsersInSearch) {
-                    // Do not render this rank's section if search is active and it has no matching users
                 } else {
                     container.innerHTML += rankHeaderHtml + usersHtml + `</div>`;
                 }
