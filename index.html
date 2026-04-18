@@ -878,7 +878,7 @@
                         ? `<input type="text" value="${user.topBox || ''}" placeholder="Strikes" onchange="updateUserField(${rankIndex}, ${user.originalIndex}, 'topBox', this.value)">`
                         : (user.topBox || '');
 
-                    const topBoxDiv = (isEditorView || user.topBox) ? `<div class="user-top-right-box">${topBoxHtml} Strikes</div>` : '';
+                    const topBoxDiv = (isEditorView || user.topBox) ? `<div class="user-top-right-box">${topBoxHtml}</div>` : '';
 
                     usersHtml += `
                     <div class="user-card ${empClass}">
